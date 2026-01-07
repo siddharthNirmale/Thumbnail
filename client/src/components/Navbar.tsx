@@ -55,7 +55,6 @@ export default function Navbar() {
                     <XIcon />
                 </button>
             </div>
-            
         </>
     );
 }
