@@ -1,1 +1,1 @@
-Creating a thumbnail generating site using gemini
+Creating a Thumbnail-Generating Site Using Gemini
