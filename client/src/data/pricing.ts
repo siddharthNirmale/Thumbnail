@@ -1,45 +1,46 @@
 import type { IPricing } from "../types";
 
-export const pricingData: IPricing[] = [
-    {
-        name: "Basic",
-        price: 29,
-        period: "month",
-        features: [
-            "Access to all basic courses",
-            "Community support",
-            "10 practice projects",
-            "Course completion certificate",
-            "Basic code review"
-        ],
-        mostPopular: false
-    },
-    {
-        name: "Pro",
-        price: 79,
-        period: "month",
-        features: [
-            "Access to all Pro courses",
-            "Priority community support",
-            "30 practice projects",
-            "Course completion certificate",
-            "Advance code review",
-            "1-on-1 mentoring sessions",
-            "Job assistance"
-        ],
-        mostPopular: true
-    },
-    {
-        name: "Enterprise",
-        price: 199,
-        period: "month",
-        features: [
-            "Access to all courses",
-            "Dedicated support",
-            "Unlimited projects",
-            "Course completion certificate",
-            "Premium code review"
-        ],
-        mostPopular: false
-    }
-];
+export const pricingData: IPricing[] =[
+  {
+    "name": "Starter",
+    "price": 19,
+    "period": "month",
+    "features": [
+      "50 thumbnails",
+      "Standard styles",
+      "HD export",
+      "Basic editor",
+      "Community support"
+    ],
+    "mostPopular": false
+  },
+  {
+    "name": "Creator",
+    "price": 49,
+    "period": "month",
+    "features": [
+      "300 thumbnails",
+      "All styles",
+      "Ultra HD export",
+      "Advanced editor",
+      "Brand kit",
+      "Fast generation",
+      "Priority support"
+    ],
+    "mostPopular": true
+  },
+  {
+    "name": "Studio",
+    "price": 129,
+    "period": "month",
+    "features": [
+      "Unlimited thumbnails",
+      "Custom styles",
+      "Platform exports",
+      "Team access",
+      "Commercial license"
+    ],
+    "mostPopular": false
+  }
+]
+;
