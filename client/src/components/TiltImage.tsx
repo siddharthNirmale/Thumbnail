@@ -53,7 +53,7 @@ export default function TiltedImage({ rotateAmplitude = 3, }) {
         >
             <motion.div className="relative transform-3d w-full max-w-4xl" style={{ rotateX, rotateY }} >
                 <motion.img src="/hero_img.png"
-                    className=" bg-gradient-to-b from-pink-500 to-transparent p-0.5  w-full rounded-[15px] will-change-transform transform-[translateZ(0)]"
+                    className=" bg-gradient-to-b from-indigo-500 to-transparent p-0.5  w-full rounded-[15px] will-change-transform transform-[translateZ(0)]"
                     alt="hero section showcase"
                 />
             </motion.div>
