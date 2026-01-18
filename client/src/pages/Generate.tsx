@@ -32,9 +32,29 @@ const Generate = () => {
             <div className='space-y-5 '>
               {/* title input  */}
               <div className='space-y-2 '>
-                <label className='bloack text-sm font-medium'  > Title or Topic </label>
+                <label className='block text-sm font-medium' > Title or Topic </label>
+                <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} maxLength={100} placeholder='e.g., 10 Tips for Better Sleep' 
+                className='w-full px-4 py-3 rounded-lg border border-white/12 bg-black/20 text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500' />
+                <div className='flex justify-end '>
+                  <span className='text-xs text-zinc-400'>{title.length}/100</span>
+                </div>
               </div>
 
+            {/* aspect ratio selector */}
+
+
+            {/* styleselector */}
+
+            {/* colorScheme Selector */}
+
+            {/* details */}
+            <div className='space-y-2'>
+              <label className='block text-sm font-medium' >Additional Prompts <span className='text-zinc-400'>(optional)</span>
+
+              </label>
+              <textarea value={additonalDetails} onChange={(e)=>setAdditonalDetails(e.target.value)} placeholder='Add any specific elements, mood, or style preferences...' className='w-full px-4 py-3 rounded-lg border border-white/10 bg-white/6 text-zinc-100 placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 resize-none' rows={3}/>
+
+            </div>
             </div>
             {/* button  */}
 
