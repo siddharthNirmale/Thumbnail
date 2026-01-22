@@ -10,6 +10,6 @@ https://prebuiltui.com/tailwind-templates/pixels-animated-saas-app-template
 https://www.linkedin.com/in/siddharth-nirmale/
 
 
-https://www.youtube.com/watch?v=LpHfmr1CKEI
+https://www.youtube.com/watch?v=LpHfmr1CKEI.
 
 
