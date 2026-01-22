@@ -1,4 +1,4 @@
-import React from 'react'
+
 import type { AspectRatio, IThumbnail } from '../assets/assets'
 import { DownloadIcon, ImageIcon, Loader2Icon } from 'lucide-react'
 
@@ -7,9 +7,9 @@ const PreviewPanel = ({
   isLoading,
   aspectRatio,
 }: {
-  thumbnail: IThumbnail
-  isLoading: boolean
-  aspectRatio: AspectRatio
+  thumbnail: IThumbnail | null ,
+  isLoading: boolean,
+  aspectRatio: AspectRatio,
 }) => {
   const aspectClasses: Record<AspectRatio, string> = {
     '16:9': 'aspect-video',
