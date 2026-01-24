@@ -1,6 +1,8 @@
 import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
 
+import hero_img from '../assets/hero_img.png';  
+
 const springValues = {
     damping: 30,
     stiffness: 100,
@@ -52,7 +54,7 @@ export default function TiltedImage({ rotateAmplitude = 3, }) {
             transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
         >
             <motion.div className="relative transform-3d w-full max-w-4xl" style={{ rotateX, rotateY }} >
-                <motion.img src="/hero_img.png"
+                <motion.img src={hero_img}
                     className=" bg-gradient-to-b from-indigo-500 to-transparent p-0.5  w-full rounded-[15px] will-change-transform transform-[translateZ(0)]"
                     alt="hero section showcase"
                 />
