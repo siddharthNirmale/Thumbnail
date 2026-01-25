@@ -4,6 +4,9 @@ import 'dotenv/config';
 import connectDb from '../configs/db.js';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
+import AuthRouter from '../routes/AuthRoutes.js';
+
+
 declare module 'express-session'{
     interface SessionData{
         isLoggedIn: boolean;
@@ -32,7 +35,7 @@ app.use(session({
     store: MongoStore.create({
         mongoUrl:process.env.MONGODB_URL as string,
         collectionName:'sessions',
-        
+
     }) 
 }))
 
@@ -42,6 +45,8 @@ app.use(express.json());
 app.get('/', (req: Request, res: Response) => {
     res.send('Server is Live!');
 });
+
+app.use('/api/auth',AuthRouter);
 
 app.listen(port, () => {
     console.log(`Server is running at http://localhost:${port}`);
