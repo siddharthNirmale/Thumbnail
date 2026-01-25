@@ -2,14 +2,40 @@ import express, { Request, Response } from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import connectDb from '../configs/db.js';
+import session from 'express-session';
+import MongoStore from 'connect-mongo';
+declare module 'express-session'{
+    interface SessionData{
+        isLoggedIn: boolean;
+        userId : string;
 
+    }
+} 
 await connectDb();
+
+
 
 const app = express();
 
 const port = process.env.port || 3000 ;
 
-app.use(cors());
+app.use(cors({
+    origin:['http://localhost:5173','http://localhost:3000'],
+    credentials:true,
+
+}));
+app.use(session({
+    secret: process.env.SESSION_SECRET as string,
+    resave:false,
+    saveUninitialized:false,
+    cookie:{maxAge:1000*60*60*24*7},  //seven days
+    store: MongoStore.create({
+        mongoUrl:process.env.MONGODB_URL as string,
+        collectionName:'sessions',
+        
+    }) 
+}))
+
 
 app.use(express.json());
 
