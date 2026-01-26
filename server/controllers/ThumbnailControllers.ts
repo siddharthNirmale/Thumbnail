@@ -97,6 +97,10 @@ export const generateThumbnail = async (req: Request, res: Response) => {
             config:generationConfig
         })
 
+        // elements 
+
+
+
         // check if the response is valid 
         if(!response?.candidates?.[0]?.content?.parts){
             throw new Error('Unexpected response')
