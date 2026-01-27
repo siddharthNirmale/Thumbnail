@@ -2,7 +2,8 @@ import { Request, Response } from "express"
 import Thumbail from "../models/thumbnail.js";
 import { GenerateContentConfig, HarmBlockThreshold, HarmCategory } from "@google/genai";
 import ai from "../configs/ai.js";
-import path from "node:path";
+import path from "path";
+import { fstat } from "fs";
 
 const stylePrompts = {
     'Bold & Graphic': 'eye-catching thumbnail, bold typography, vibrant colors, expressive facial reaction, dramatic lighting, high contrast, click-worthy composition, professional style',
@@ -116,7 +117,16 @@ export const generateThumbnail = async (req: Request, res: Response) => {
 
         }
         const filename = `final-output-${Date.now()}.png`;
-        const filepath = path
+        const filepath = path.join('images',filename);
+
+        // Create the images directory if it doesnt exist 
+        fs.mkdirSync('images',{recursive:true})
+
+        // write the final image to the file 
+
+        fs.writeFileSync(filepath,finalBuffer!);
+
+        
 
     } catch (error) {
 
