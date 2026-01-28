@@ -3,7 +3,9 @@ import Thumbail from "../models/thumbnail.js";
 import { GenerateContentConfig, HarmBlockThreshold, HarmCategory } from "@google/genai";
 import ai from "../configs/ai.js";
 import path from "path";
-import { fstat } from "fs";
+import  fs  from "fs";
+import { v2 as cloudinary } from "cloudinary";
+
 
 const stylePrompts = {
     'Bold & Graphic': 'eye-catching thumbnail, bold typography, vibrant colors, expressive facial reaction, dramatic lighting, high contrast, click-worthy composition, professional style',
@@ -126,9 +128,42 @@ export const generateThumbnail = async (req: Request, res: Response) => {
 
         fs.writeFileSync(filepath,finalBuffer!);
 
+        const uploadResult = await cloudinary.uploader.upload(filepath,{resource_type:'image'})
+
+        thumbnail.image_url = uploadResult.url;
+
+        thumbnail.isGenerating = false;
+        await thumbnail.save();
+
+        res.json({message:"Thumbnail Generated",thumbnail})
+
+        // remove file from disk 
+        fs.unlinkSync(filepath)
+
         
 
-    } catch (error) {
-
+    } catch(error:any) {
+        console.log(error);
+        res.status(500).json({message:error.message});
     }
+}
+
+// controllers for Thumbail Deletion 
+export const deleteThumbnail = async (req: Request, res: Response) =>{
+    try{
+        const {id} = req.params;
+        const {userId} = req.session;
+        
+        await Thumbail.findByIdAndDelete({_id:id , userId})
+
+        res.json({message:"Thumbnail Deleted Successfully"});
+
+        
+
+
+    }catch(error:any){
+       console.log(error);
+        res.status(500).json({message:error.message});
+    }
+
 }
