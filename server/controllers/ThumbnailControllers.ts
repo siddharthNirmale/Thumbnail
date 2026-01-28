@@ -49,7 +49,7 @@ export const generateThumbnail = async (req: Request, res: Response) => {
             isGenerating: true,
         })
 
-        const model = "gemini-2.5-flash-image";
+        const model = "gemini-3-pro-image-preview";
         const generationConfig: GenerateContentConfig = {
             maxOutputTokens: 32768,
             temperature: 1,
@@ -100,7 +100,6 @@ export const generateThumbnail = async (req: Request, res: Response) => {
             config:generationConfig
         })
 
-        // elements 
 
 
 
@@ -158,7 +157,7 @@ export const deleteThumbnail = async (req: Request, res: Response) =>{
 
         res.json({message:"Thumbnail Deleted Successfully"});
 
-        
+
 
 
     }catch(error:any){

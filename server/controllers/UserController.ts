@@ -22,7 +22,7 @@ export const getUserThumbnails = async (req:Request,res:Response)=>{
 
 // controller to get singler  thumbnail of a user
 
-export const getThumbnailbyIc = async (req:Request,res:Response)=>{
+export const getThumbnailbyId = async (req:Request,res:Response)=>{
     try {
         const {userId} = req.session;
 
