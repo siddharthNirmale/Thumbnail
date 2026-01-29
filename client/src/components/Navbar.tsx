@@ -1,60 +1,132 @@
 import { MenuIcon, XIcon } from "lucide-react";
 import { useState } from "react";
 import { motion } from "motion/react";
-import { navlinks } from "../data/navlinks";
-import type { INavLink } from "../types";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
-    const navigate = useNavigate();
+	const { isLoggedIn, user, logout } = useAuth();
+	const [isOpen, setIsOpen] = useState(false);
+	const navigate = useNavigate();
 
+	const closeMenu = () => setIsOpen(false);
 
-    return (
-        <>
-            <motion.nav className="fixed top-0 z-50 flex items-center justify-between w-full py-4 px-6 md:px-16 lg:px-24 xl:px-32 backdrop-blur"
-                initial={{ y: -100, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
-            >
-                <Link to="/">
-                    <img src="/logo.svg" alt="logo" className="h-8.5 w-auto" />
-                </Link>
+	return (
+		<>
+			{/* Desktop Navbar */}
+			<motion.nav
+				className="fixed top-0 z-50 flex items-center justify-between w-full py-4 px-6 md:px-16 lg:px-24 xl:px-32 backdrop-blur"
+				initial={{ y: -100, opacity: 0 }}
+				animate={{ y: 0, opacity: 1 }}
+				viewport={{ once: true }}
+				transition={{ type: "spring", stiffness: 250, damping: 70, mass: 1 }}
+			>
+				{/* Logo */}
+				<Link to="/">
+					<img src="/logo.svg" alt="logo" className="h-8.5 w-auto" />
+				</Link>
 
-                <div className="hidden md:flex items-center gap-8 transition duration-500">
+				{/* Desktop Links */}
+				<div className="hidden md:flex items-center gap-8 transition duration-500">
+					<Link to="/" className="transition hover:text-indigo-300">
+						Home
+					</Link>
+					<Link to="/generate" className="transition hover:text-indigo-300">
+						Generate
+					</Link>
 
-                    <Link to="/" className="hover:text-indigo-300 transition">Home</Link>
-                    <Link to="/generate" className="hover:text-indigo-300 transition">Generate</Link>
-                    <Link to="/my-generation" className="hover:text-indigo-300 transition">My Generations</Link>
-                    <Link to="#" className="hover:text-indigo-300 transition">My Contact</Link>
+					{/* Conditional Logic preserved from 'Before' */}
+					{isLoggedIn ? (
+						<Link to="/my-generation" className="transition hover:text-indigo-300">
+							My Generations
+						</Link>
+					) : (
+						<Link to="#" className="transition hover:text-indigo-300">
+							About
+						</Link>
+					)}
 
+					<Link to="#" className="transition hover:text-indigo-300">
+						Contact us
+					</Link>
+				</div>
 
-                </div>
+				{/* User Actions / Auth Buttons */}
+				<div className="flex items-center gap-2">
+					{isLoggedIn ? (
+						<div className="relative group">
+							<button className="rounded-full size-8 bg-white/20 border-2 border-white/10 flex items-center justify-center">
+								{user?.name?.charAt(0).toUpperCase()}
+							</button>
+							<div className="absolute hidden group-hover:block top-6 right-0 pt-4">
+								<button
+									onClick={() => logout()}
+									className="bg-white/20 border-2 border-white/10 px-5 py-1.5 rounded whitespace-nowrap backdrop-blur-md"
+								>
+									Logout
+								</button>
+							</div>
+						</div>
+					) : (
+						<button
+							className="hidden md:block px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all rounded-full"
+							onClick={() => navigate("/login")}
+						>
+							Get Started
+						</button>
+					)}
 
-                <button className="hidden md:block px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all rounded-full" onClick={() => navigate('/login')}>
-                    Get Started
-                </button>
-                <button onClick={() => setIsOpen(true)} className="md:hidden">
-                    <MenuIcon size={26} className="active:scale-90 transition" />
-                </button>
-            </motion.nav>
+					{/* Mobile Menu Toggle */}
+					<button onClick={() => setIsOpen(true)} className="md:hidden">
+						<MenuIcon size={26} className="active:scale-90 transition" />
+					</button>
+				</div>
+			</motion.nav>
 
-            <div className={`fixed inset-0 z-100 bg-black/40 backdrop-blur flex flex-col items-center justify-center text-lg gap-8 md:hidden transition-transform duration-400 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
+			{/* Mobile Menu Overlay */}
+			<div
+				className={`fixed inset-0 z-[100] bg-black/40 backdrop-blur flex flex-col items-center justify-center text-lg gap-8 md:hidden transition-transform duration-400 ${isOpen ? "translate-x-0" : "-translate-x-full"
+					}`}
+			>
+				<Link onClick={closeMenu} to="/">
+					Home
+				</Link>
+				<Link onClick={closeMenu} to="/generate">
+					Generate
+				</Link>
 
-                <Link onClick={() => setIsOpen(false)} to="/" >Home</Link>
-                <Link onClick={() => setIsOpen(false)} to="/generate" >Generate</Link>
-                <Link onClick={() => setIsOpen(false)} to="/my-generation" >My Generations</Link>
-                <Link onClick={() => setIsOpen(false)} to="#" >My Contact</Link>
-                <Link onClick={() => setIsOpen(false)} to="/login" >Login</Link>
+				{isLoggedIn ? (
+					<Link onClick={closeMenu} to="/my-generation">
+						My Generations
+					</Link>
+				) : (
+					<Link onClick={closeMenu} to="#">
+						About
+					</Link>
+				)}
 
+				<Link onClick={closeMenu} to="#">
+					Contact us
+				</Link>
 
-                <button onClick={() => setIsOpen(false)} className="active:ring-3 active:ring-white aspect-square size-10 p-1 items-center justify-center bg-indigo-600 hover:bg-indigo-700 transition text-white rounded-md flex">
-                    <XIcon />
-                </button>
-            </div>
-        </>
-    );
+				{isLoggedIn ? (
+					<button onClick={() => { closeMenu(); logout(); }}>
+						Logout
+					</button>
+				) : (
+					<Link onClick={closeMenu} to="/login">
+						Login
+					</Link>
+				)}
+
+				{/* Close Button */}
+				<button
+					onClick={closeMenu}
+					className="flex items-center justify-center size-10 p-1 bg-indigo-600 hover:bg-indigo-700 transition text-white rounded-md active:ring-2 active:ring-white"
+				>
+					<XIcon />
+				</button>
+			</div>
+		</>
+	);
 }
