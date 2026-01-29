@@ -9,8 +9,8 @@ export const getUserThumbnails = async (req:Request,res:Response)=>{
     try {
         const {userId} = req.session;
 
-        const thumbnail = await Thumbail.find({userId}).sort({createdAt: -1});
-        res.json({thumbnail})
+        const thumbnails = await Thumbail.find({userId}).sort({createdAt: -1});
+        res.json({thumbnails})
 
 
 

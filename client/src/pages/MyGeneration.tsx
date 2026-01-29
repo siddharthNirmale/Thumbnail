@@ -8,14 +8,18 @@ import {
   TrashIcon,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useAuth } from '../context/AuthContext'
+import toast from 'react-hot-toast'
+import api from '../configs/api'
 
 type AspectRatio = '16:9' | '1:1' | '9:16'
 
 const MyGeneration = () => {
   const [thumbnails, setThumbnails] = useState<IThumbnail[]>([])
   const [loading, setLoading] = useState(false)
-
+  const { isLoggedIn } = useAuth();
   const navigate = useNavigate()
+
 
   const aspectRatioClassMap: Record<AspectRatio, string> = {
     '16:9': 'aspect-video',
@@ -24,22 +28,47 @@ const MyGeneration = () => {
   }
 
   const fetchThumbnails = async () => {
-    setLoading(true)
-    setThumbnails(dummyThumbnails as IThumbnail[])
-    setLoading(false)
+    try {
+      setLoading(true)
+      const { data } = await api.get('/api/user/thumbnails')
+      setThumbnails(data.thumbnails || [])
+    } catch (error: any) {
+      console.error(error);
+      toast.error(error?.response?.data?.message || error.message)
+    }
+    finally {
+      setLoading(false);
+    }
   }
 
   const handleDownload = (image_url: string) => {
-    window.open(image_url, '_blank')
+
+    const link = document.createElement('a');
+    link.href = image_url.replace('/upload', '/uplooad/fl_attachment')
+    document.body.appendChild(link);
+    link.click()
+    link.remove()
   }
 
   const handleDelete = async (id: string) => {
-    console.log(id)
+    try {
+      const confirm = window.confirm("Are you sure you want to delete this thumbnail? ")
+      if(!confirm) return;
+      const {data} = await api.delete(`/api/thumbnail/delete/${id}`)
+      toast.success(data.message)
+      setThumbnails(thumbnails.filter((t)=>t._id !==id));
+    } catch (error:any) {
+      console.error(error);
+      toast.error(error?.response?.data?.message || error.message)
+    }
   }
 
   useEffect(() => {
-    fetchThumbnails()
-  }, [])
+    if(isLoggedIn){
+      fetchThumbnails()
+    }
+    
+  }, [isLoggedIn])
 
   return (
     <>
@@ -108,7 +137,7 @@ const MyGeneration = () => {
             {thumbnails.map((thumb) => {
               const aspectClass =
                 aspectRatioClassMap[
-                  thumb.aspect_ratio as AspectRatio
+                thumb.aspect_ratio as AspectRatio
                 ] || aspectRatioClassMap['16:9']
 
               return (

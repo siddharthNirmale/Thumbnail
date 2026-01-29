@@ -1,71 +1,112 @@
-import { ChevronDown, CpuIcon, ImageIcon, PenToolIcon, SparklesIcon, SquareIcon } from "lucide-react";
-import { thumbnailStyles, type ThumbnailStyle } from "../assets/assets"
-import { div } from "motion/react-client";
+import {
+    ChevronDown,
+    CpuIcon,
+    ImageIcon,
+    PenToolIcon,
+    SparklesIcon,
+    SquareIcon
+} from "lucide-react";
 
+import { thumbnailStyles, type ThumbnailStyle } from "../assets/assets";
 
-const StyleSelector = ({ value, onChange, isOpen, setIsOpen }: { value: ThumbnailStyle; onChange: (style: ThumbnailStyle) => void; isOpen: boolean; setIsOpen: (open: boolean) => void }) => {
+interface StyleSelectorProps {
+    value: ThumbnailStyle;
+    onChange: (style: ThumbnailStyle) => void;
+    isOpen: boolean;
+    setIsOpen: (open: boolean) => void;
+}
 
+const StyleSelector = ({
+    value,
+    onChange,
+    isOpen,
+    setIsOpen
+}: StyleSelectorProps) => {
 
     const styleDescriptions: Record<ThumbnailStyle, string> = {
-        "Bold & Graphic": "High constrast , bold typography , striking visuals",
-        "Minimalist": "Clean design , ample white space , simple typography",
-        "Photorealistic": "Lifelike images , detailed visuals , realistic lighting",
-        "Illustrated": "Hand-drawn elements , artistic style , creative visuals",
-        "Tech/Futuristic": "Sleek design , modern typography , high-tech visuals"
-    }
+        "Bold & Graphic": "High contrast, bold typography, striking visuals",
+        "Minimalist": "Clean design, ample white space, simple typography",
+        "Photorealistic": "Lifelike images, detailed visuals, realistic lighting",
+        "Illustrated": "Hand-drawn elements, artistic style, creative visuals",
+        "Tech/Futuristic": "Sleek design, modern typography, high-tech visuals"
+    };
+
     const styleIcons: Record<ThumbnailStyle, React.ReactNode> = {
         "Bold & Graphic": <SparklesIcon className="h-4 w-4" />,
         "Minimalist": <SquareIcon className="h-4 w-4" />,
         "Photorealistic": <ImageIcon className="h-4 w-4" />,
         "Illustrated": <PenToolIcon className="h-4 w-4" />,
-        "Tech/Futuristic": <CpuIcon className="h-4 w-4" />,
-    }
+        "Tech/Futuristic": <CpuIcon className="h-4 w-4" />
+    };
 
     return (
-        <div className=" relative space-y-3 dark ">
+        <div className="relative space-y-3">
             <label className="block text-sm font-medium text-zinc-200">
                 Thumbnail Style
             </label>
 
-            <button type="button"
+            {/* Trigger Button */}
+            <button
+                type="button"
                 onClick={() => setIsOpen(!isOpen)}
-                className="flex w-full items-center justify-between rounded-md border px-4 py-3 text-left transition bg-white/8 border-white/10 text-zinc-200 hover:bg-white/12">
+                className="flex w-full items-center justify-between rounded-md border px-4 py-3 text-left transition bg-white/8 border-white/10 text-zinc-200 hover:bg-white/12"
+            >
                 <div className="space-y-1">
-                    <div className="flex item-center gap-2 font-medium">
+                    <div className="flex items-center gap-2 font-medium">
                         {styleIcons[value]}
                         <span>{value}</span>
                     </div>
-                    <p className="text-xs text-zinc-400">{styleDescriptions[value]}</p>
+                    <p className="text-xs text-zinc-400">
+                        {styleDescriptions[value]}
+                    </p>
                 </div>
-                <ChevronDown className={["h-5 w-5 text-zinc-400 transition-transform", isOpen && 'rotate-180'].join(' ')} />
+
+                <ChevronDown
+                    className={[
+                        "h-5 w-5 text-zinc-400 transition-transform",
+                        isOpen && "rotate-180"
+                    ].join(" ")}
+                />
             </button>
+
+            {/* Dropdown + Blur Background */}
             {isOpen && (
-                <div className="absolute bottom-0 z-50 mt-1 w-full rounded-md border border-white/12 bg-black/20 backdrop-blur-3xl shadow-lg">
-                    {thumbnailStyles.map((style)=> (
-                        <button type="button"
-                         key={style}
-                         onClick={()=>{onChange(style); setIsOpen(false);}}
-                         className="flex  w-full items-start gap-3 px-4 py-3 text-left transition hover:bg-black/60">
-                        <div className="mt-0.5">
-                            {styleIcons[style]}
-                        </div>
-                        <div>
-                            <p className="font-medium ">{style}</p>
-                            <p  className="text-xs text-zinc-400">{styleDescriptions[style]}</p>
-                            
-                        </div>
+                <>
+                    {/* Background Blur Overlay */}
+                    <div
+                        className="fixed inset-0 z-40 backdrop-blur-sm bg-black/20"
+                        onClick={() => setIsOpen(false)}
+                    />
 
+                    {/* Dropdown */}
+                    <div className="absolute bottom-0 z-50 mt-1 w-full rounded-md border border-white/12 bg-black/80 backdrop-blur-3xl shadow-lg">
+                        {thumbnailStyles.map((style) => (
+                            <button
+                                key={style}
+                                type="button"
+                                onClick={() => {
+                                    onChange(style);
+                                    setIsOpen(false);
+                                }}
+                                className="flex w-full items-start gap-3 px-4 py-3 text-left transition hover:bg-black/60"
+                            >
+                                <div className="mt-0.5">
+                                    {styleIcons[style]}
+                                </div>
 
-
-                        </button>
-                    ))}
-
-                </div>
+                                <div>
+                                    <p className="font-medium">{style}</p>
+                                    <p className="text-xs text-zinc-400">
+                                        {styleDescriptions[style]}
+                                    </p>
+                                </div>
+                            </button>
+                        ))}
+                    </div>
+                </>
             )}
-
-
         </div>
-    )
-}
+    );
+};
 
-export default StyleSelector
+export default StyleSelector;
