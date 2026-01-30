@@ -13,3 +13,5 @@ https://www.linkedin.com/in/siddharth-nirmale/
 https://www.youtube.com/watch?v=LpHfmr1CKEI.
 
 
+the deploy is remaining and billing of google cloud
+
