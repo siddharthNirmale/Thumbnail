@@ -8,10 +8,13 @@ import Generate from "./pages/Generate";
 import MyGeneration from "./pages/MyGeneration";
 import YtPreview from "./pages/YtPreview";
 import Login from "./components/Login";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {Toaster} from "react-hot-toast";
 
 export default function App() {
+
+    const [isWorking, setIsWorking] = useState<Boolean || null>(True);
+
     const {pathname} = useLocation();
     useEffect(()=>{
         window.scrollTo(0,0);
