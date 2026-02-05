@@ -52,3 +52,4 @@ Deployment and cloud configuration will be added in future updates.
 
 
 did Little changes to the file
+added more features 
