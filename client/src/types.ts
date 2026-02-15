@@ -33,7 +33,9 @@ export interface IFooterLink {
     href: string;
 }
 
-
+export interface FooterProps {
+    footer: IFooter;
+}
 
 export interface NavbarProps {
     navlinks: INavLink[];
