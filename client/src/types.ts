@@ -33,12 +33,6 @@ export interface IFooterLink {
     href: string;
 }
 
-export interface HeroProps{
-    title: string;
-    description: string;
-    buttonText: string;
-    buttonHref:string;
-}
 
 export interface NavbarProps {
     navlinks: INavLink[];
