@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import SoftBackdrop from '../components/SoftBackdrop'
 import { dummyThumbnails, type IThumbnail } from '../assets/assets'
 import { useNavigate, Link } from 'react-router-dom'
@@ -69,6 +69,10 @@ const MyGeneration = () => {
     }
     
   }, [isLoggedIn])
+
+  useEffect(() => {
+    document.title = "My Generations -Thumbnail Ai"
+  },[])
 
   return (
     <>
