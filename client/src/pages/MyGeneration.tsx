@@ -70,9 +70,7 @@ const MyGeneration = () => {
     
   }, [isLoggedIn])
 
-  useEffect(() => {
-    document.title = "My Generations -Thumbnail Ai"
-  },[])
+ 
 
   return (
     <>
