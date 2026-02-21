@@ -25,7 +25,7 @@ const app = express();
 const port = process.env.port || 3000;
 
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:3000'],
+    origin: ['http://localhost:5173', 'http://localhost:3000',"https://thumbmax-psi.vercel.app/"],
     credentials: true,
 
 }));
