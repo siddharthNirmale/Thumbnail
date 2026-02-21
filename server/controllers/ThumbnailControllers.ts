@@ -5,6 +5,7 @@ import ai from "../configs/ai.js";
 import path from "path";
 import  fs  from "fs";
 import { v2 as cloudinary } from "cloudinary";
+import dotenv from 'dotenv';
 
 
 const stylePrompts = {
@@ -49,7 +50,7 @@ export const generateThumbnail = async (req: Request, res: Response) => {
             isGenerating: true,
         })
 
-        const model = "gemini-3-pro-image-preview";
+        const model = "gemini-3.1-pro-preview";
         const generationConfig: GenerateContentConfig = {
             maxOutputTokens: 32768,
             temperature: 1,

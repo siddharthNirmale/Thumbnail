@@ -1,12 +1,12 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import connectDb from '../configs/db.js';
+import connectDb from './configs/db.js';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
-import AuthRouter from '../routes/AuthRoutes.js';
-import ThumbnailRouter from '../routes/ThumnailRoutes.js';
-import UserRouter from '../routes/UserRoutes.js';
+import AuthRouter from './routes/AuthRoutes.js';
+import ThumbnailRouter from './routes/ThumnailRoutes.js';
+import UserRouter from './routes/UserRoutes.js';
 
 
 declare module 'express-session' {
