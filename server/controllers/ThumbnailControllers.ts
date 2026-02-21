@@ -3,7 +3,7 @@ import Thumbail from "../models/thumbnail.js";
 import { GenerateContentConfig, HarmBlockThreshold, HarmCategory } from "@google/genai";
 import ai from "../configs/ai.js";
 import path from "path";
-import  fs  from "fs";
+import fs from "fs";
 import { v2 as cloudinary } from "cloudinary";
 import dotenv from 'dotenv';
 
@@ -95,75 +95,76 @@ export const generateThumbnail = async (req: Request, res: Response) => {
         prompt += `The thumbnail should be ${aspect_ratio}, visually stunning, and designed to maximize click-through rate. Make it bold, professional, and impossible to ignore.`
 
         // Generate the image using the ai model 
-        const response  : any= await ai.models.generateContent({
+        const response: any = await ai.models.generateContent({
             model,
-            contents:[prompt],
-            config:generationConfig
+            contents: [prompt],
+            config: generationConfig
         })
 
 
 
 
         // check if the response is valid 
-        if(!response?.candidates?.[0]?.content?.parts){
+        if (!response?.candidates?.[0]?.content?.parts) {
             throw new Error('Unexpected response')
         }
         const parts = response.candidates[0].content.parts;
 
-        let finalBuffer: Buffer | null  = null;
+        let finalBuffer: Buffer | null = null;
 
-        for(const part of parts){
-            if(part.inlineData){
-                finalBuffer = Buffer.from(part.inlineData.data,'base64')
+        for (const part of parts) {
+            if (part.inlineData) {
+                finalBuffer = Buffer.from(part.inlineData.data, 'base64')
             }
 
         }
-        const filename = `final-output-${Date.now()}.png`;
-        const filepath = path.join('images',filename);
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-')
+        const filename = `final-output-${timestamp}.png`
+        const filepath = path.join('images', filename);
 
         // Create the images directory if it doesnt exist 
-        fs.mkdirSync('images',{recursive:true})
+        fs.mkdirSync('images', { recursive: true })
 
         // write the final image to the file 
 
-        fs.writeFileSync(filepath,finalBuffer!);
+        fs.writeFileSync(filepath, finalBuffer!);
 
-        const uploadResult = await cloudinary.uploader.upload(filepath,{resource_type:'image'})
+        const uploadResult = await cloudinary.uploader.upload(filepath, { resource_type: 'image' })
 
         thumbnail.image_url = uploadResult.url;
 
         thumbnail.isGenerating = false;
         await thumbnail.save();
 
-        res.json({message:"Thumbnail Generated",thumbnail})
+        res.json({ message: "Thumbnail Generated", thumbnail })
 
         // remove file from disk 
         fs.unlinkSync(filepath)
 
-        
 
-    } catch(error:any) {
+
+    } catch (error: any) {
         console.log(error);
-        res.status(500).json({message:error.message});
+        res.status(500).json({ message: error.message });
     }
 }
 
 // controllers for Thumbail Deletion 
-export const deleteThumbnail = async (req: Request, res: Response) =>{
-    try{
-        const {id} = req.params;
-        const {userId} = req.session;
-        
-        await Thumbail.findByIdAndDelete({_id:id , userId})
+export const deleteThumbnail = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const { userId } = req.session;
 
-        res.json({message:"Thumbnail Deleted Successfully"});
+        await Thumbail.findByIdAndDelete({ _id: id, userId })
 
-
+        res.json({ message: "Thumbnail Deleted Successfully" });
 
 
-    }catch(error:any){
-       console.log(error);
-        res.status(500).json({message:error.message});
+
+
+    } catch (error: any) {
+        console.log(error);
+        res.status(500).json({ message: error.message });
     }
 
 }

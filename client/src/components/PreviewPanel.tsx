@@ -1,4 +1,3 @@
-
 import type { AspectRatio, IThumbnail } from '../assets/assets'
 import { DownloadIcon, ImageIcon, Loader2Icon } from 'lucide-react'
 
@@ -7,9 +6,9 @@ const PreviewPanel = ({
   isLoading,
   aspectRatio,
 }: {
-  thumbnail: IThumbnail | null ,
-  isLoading: boolean,
-  aspectRatio: AspectRatio,
+  thumbnail: IThumbnail | null
+  isLoading: boolean
+  aspectRatio: AspectRatio
 }) => {
   const aspectClasses: Record<AspectRatio, string> = {
     '16:9': 'aspect-video',
@@ -18,20 +17,30 @@ const PreviewPanel = ({
   }
 
   const onDownload = () => {
-    if (!thumbnail?.image_url) return;
-    const link = document.createElement('a');
-    link.href = thumbnail?.image_url.replace('/upload','/uplooad/fl_attachment')
-    document.body.appendChild(link);
+    if (!thumbnail?.image_url) return
+
+    const link = document.createElement('a')
+
+    // ✅ Fixed Cloudinary attachment transformation
+    link.href = thumbnail.image_url.replace(
+      '/upload',
+      '/upload/fl_attachment'
+    )
+
+    link.download = thumbnail.title || 'thumbnail'
+    document.body.appendChild(link)
     link.click()
-    link.remove()
+    document.body.removeChild(link)
   }
 
   return (
     <div className="relative mx-auto w-full max-w-2xl">
-      <div className={`relative overflow-hidden ${aspectClasses[aspectRatio]}`}>
-        {/* loading state */}
+      <div
+        className={`relative overflow-hidden rounded-xl ${aspectClasses[aspectRatio]}`}
+      >
+        {/* Loading State */}
         {isLoading && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/25">
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/25 backdrop-blur-sm">
             <Loader2Icon className="size-8 animate-spin text-zinc-400" />
             <div className="text-center">
               <p className="text-sm font-medium text-zinc-200">
@@ -44,15 +53,16 @@ const PreviewPanel = ({
           </div>
         )}
 
-        {/* image preview */}
+        {/* Image Preview */}
         {!isLoading && thumbnail?.image_url && (
           <div className="group relative h-full w-full">
             <img
               src={thumbnail.image_url}
-              alt={thumbnail.title}
+              alt={thumbnail.title || 'Generated Thumbnail'}
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 flex items-end justify-center bg-black/10 opacity-0 transition-opacity group-hover:opacity-100">
+
+            <div className="absolute inset-0 flex items-end justify-center bg-black/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
               <button
                 onClick={onDownload}
                 type="button"

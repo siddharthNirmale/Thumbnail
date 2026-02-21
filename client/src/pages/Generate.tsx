@@ -81,7 +81,7 @@ const Generate = () => {
   // --- Fetch Thumbnail ---
   const fetchThumbnail = useCallback(async (thumbnailId: string) => {
     try {
-      const { data } = await api.get(`/api/user-thumbnail/${thumbnailId}`);
+      const { data } = await api.get(`/api/user/thumbnail/${thumbnailId}`);
       const thumb = data?.thumbnail as IThumbnail;
 
       if (!thumb) return;
