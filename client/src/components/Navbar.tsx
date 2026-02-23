@@ -23,7 +23,7 @@ export default function Navbar() {
 			>
 				{/* Logo */}
 				<Link to="/">
-					<img src="/logo.svg" alt="logo" className="h-8.5 w-auto" />
+					<img src="/logo.png" alt="logo" className="h-8.5 w-auto" />
 				</Link>
 
 				{/* Desktop Links */}
