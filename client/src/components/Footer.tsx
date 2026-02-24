@@ -42,17 +42,17 @@ export default function Footer() {
                     <a href="#" target="_blank" rel="noreferrer">
                         <DribbbleIcon className="size-5 hover:text-indigo-500" />
                     </a>
-                    <a href="https://www.linkedin.com/company/siddharth-nirmale" target="_blank" rel="noreferrer">
+                    <a href="https://www.linkedin.com/in/siddharth-nirmale" target="_blank" rel="noreferrer">
                         <LinkedinIcon className="size-5 hover:text-indigo-500" />
                     </a>
-                    <a href="https://x.com/xosmos" target="_blank" rel="noreferrer">
+                    <a href="#" target="_blank" rel="noreferrer">
                         <TwitterIcon className="size-5 hover:text-indigo-500" />
                     </a>
                     <a href="#" target="_blank" rel="noreferrer">
                         <YoutubeIcon className="size-6 hover:text-indigo-500" />
                     </a>
                 </div>
-                <p className="mt-3 text-center">&copy; {new Date().getFullYear()} <a href="https://prebuiltui.com?utm_source=pixels">Thumbmax</a></p>
+                <p className="mt-3 text-center">&copy; {new Date().getFullYear()} <a href="#">Thumbmax</a></p>
             </motion.div>
         </footer>
     );
