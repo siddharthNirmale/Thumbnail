@@ -1,64 +1,64 @@
-Creating a Thumbnail-Generating Site Using Google Gemini
+AI-Powered Thumbnail Generation Platform Using Google Gemini
+🚀 Project Overview
 
-This project is a web application that generates high-quality thumbnails using Google Gemini. The platform is designed to help content creators quickly generate visually engaging thumbnails through AI-powered prompts, all within a clean and modern SaaS interface.
+This project is a SaaS-based web application designed to generate high-quality, visually engaging thumbnails using Google Gemini AI. The platform enables content creators to instantly transform structured prompts into professional thumbnails through an intuitive and modern interface.
 
-🚀 Tech Stack
+Built with scalability and performance in mind, the application focuses on clean UI/UX, optimized AI prompt handling, and efficient asset management to ensure a seamless user experience.
+
+🛠 Tech Stack
 
 Frontend: PrebuiltUI + Tailwind CSS
-Template Used:
-https://prebuiltui.com/tailwind-templates/pixels-animated-saas-app-template
 
 AI Integration: Google Gemini
-Authentication: Firebase (in progress)
-Image Storage: Cloudinary
+
+Authentication: Firebase (integration in progress)
+
+Image Storage & CDN: Cloudinary
+
 Deployment: Vercel
 
-📌 Project Overview
+✨ Key Features
 
-The application enables users to generate thumbnails using AI-driven prompts powered by Google Gemini. It features:
+AI-powered thumbnail generation using Google Gemini
 
-A modern SaaS-style UI built with PrebuiltUI components
+Modern SaaS-style interface built with PrebuiltUI components
 
-Fully responsive design using Tailwind CSS
+Fully responsive design with Tailwind CSS
 
-AI-based thumbnail generation
+Cloudinary-based image storage and delivery
 
-Image storage and management via Cloudinary
+Local authentication system (Firebase Auth integration underway)
 
-Local authentication system (Firebase authentication integration in progress)
+Production deployment on Vercel
 
-Deployment successfully completed on Vercel
+🏗 Architecture & Design Considerations
 
-The system is designed with scalability and performance in mind, with considerations for:
+Optimized prompt engineering for improved AI output quality
 
-Prompt optimization
+Efficient API request handling and response management
 
-API request handling
+Planned user-based generation limits for scalability
 
-Usage limits per user (currently in development)
+Clean and consistent UI/UX patterns
 
-Clean UI/UX consistency
+Performance-focused cloud deployment strategy
 
 📊 Current Status
 
-✅ Thumbnail generation working
+✅ AI thumbnail generation fully functional
+✅ Cloudinary integration completed
+✅ Live deployment on Vercel
 
-✅ Cloudinary storage integrated
-
-✅ Deployed on Vercel
-
-🔄 Firebase Authentication integration remaining
-
-🔄 User generation limit system remaining
-
-🔄 Google Cloud billing configuration in progress
+🔄 Firebase Authentication integration in progress
+🔄 User generation quota system in development
+🔄 Google Cloud billing configuration underway
 
 🔗 Reference
 
-Reference Video:
+Project inspiration:
 https://www.youtube.com/watch?v=LpHfmr1CKEI
 
 👤 Author
 
-LinkedIn:
-https://www.linkedin.com/in/siddharth-nirmale/
+Siddharth Nirmale
+LinkedIn: https://www.linkedin.com/in/siddharth-nirmale/
