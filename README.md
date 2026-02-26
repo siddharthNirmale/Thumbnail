@@ -51,6 +51,7 @@ Performance-focused cloud deployment strategy
 
 🔄 Firebase Authentication integration in progress
 🔄 User generation quota system in development
+thoda sa change 
 🔄 Google Cloud billing configuration underway
 
 🔗 Reference
