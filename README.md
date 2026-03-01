@@ -1,9 +1,9 @@
-AI-Powered Thumbnail Generation Platform Using Google Gemini
+AI-Powered Thumbnail Generation Platform with Google Gemini
 🚀 Project Overview
 
-This project is a SaaS-based web application designed to generate high-quality, visually engaging thumbnails using Google Gemini AI. The platform enables content creators to instantly transform structured prompts into professional thumbnails through an intuitive and modern interface.
+This project is a SaaS-based web application that leverages Google Gemini AI to generate high-quality, visually compelling thumbnails for content creators. The platform transforms structured prompts into professional-grade thumbnail designs through a clean, intuitive, and modern interface.
 
-Built with scalability and performance in mind, the application focuses on clean UI/UX, optimized AI prompt handling, and efficient asset management to ensure a seamless user experience.
+Engineered with scalability and performance in mind, the application emphasizes optimized prompt processing, efficient asset delivery, and a seamless user experience across devices.
 
 🛠 Tech Stack
 
@@ -19,40 +19,47 @@ Deployment: Vercel
 
 ✨ Key Features
 
-AI-powered thumbnail generation using Google Gemini
+AI-driven thumbnail generation powered by Google Gemini
 
 Modern SaaS-style interface built with PrebuiltUI components
 
-Fully responsive design with Tailwind CSS
+Fully responsive design using Tailwind CSS
 
-Cloudinary-based image storage and delivery
+Secure image storage and optimized delivery via Cloudinary
 
 Local authentication system (Firebase Auth integration underway)
 
-Production deployment on Vercel
+Live production deployment on Vercel
 
-🏗 Architecture & Design Considerations
+🏗 Architecture & Design Approach
 
-Optimized prompt engineering for improved AI output quality
+Refined prompt engineering to enhance AI output quality
 
-Efficient API request handling and response management
+Efficient API request handling and structured response management
 
-Planned user-based generation limits for scalability
+Scalable architecture with planned user-based generation limits
 
-Clean and consistent UI/UX patterns
+Clean, consistent, and user-centric UI/UX design patterns
 
-Performance-focused cloud deployment strategy
+Performance-optimized cloud deployment strategy
 
 📊 Current Status
 
-✅ AI thumbnail generation fully functional
-✅ Cloudinary integration completed
-✅ Live deployment on Vercel
+Completed:
 
-🔄 Firebase Authentication integration in progress
-🔄 User generation quota system in development
+AI thumbnail generation fully functional
 
-🔄 Google Cloud billing configuration underway
+Cloudinary integration implemented
+
+Live deployment on Vercel
+
+In Progress:
+
+Firebase Authentication integration
+
+User-based generation quota system
+
+Google Cloud billing configuration
 
 🔗 Reference
 
