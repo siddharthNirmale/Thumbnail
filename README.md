@@ -1,25 +1,24 @@
-AI-Powered Thumbnail Generation Platform with Google Gemini
-🚀 Project Overview
+AI-Powered Thumbnail Generation Platform (Google Gemini)
 
-This project is a SaaS-based web application that leverages Google Gemini AI to generate high-quality, visually compelling thumbnails for content creators. The platform transforms structured prompts into professional-grade thumbnail designs through a clean, intuitive, and modern interface.
+Project Overview
 
-Engineered with scalability and performance in mind, the application emphasizes optimized prompt processing, efficient asset delivery, and a seamless user experience across devices.
+This project is a scalable SaaS web application designed to generate high-quality, visually compelling thumbnails using Google Gemini AI. It enables content creators to transform structured prompts into professional-grade thumbnail designs within seconds.
 
-🛠 Tech Stack
+The platform is built with performance, scalability, and usability in mind, combining refined prompt engineering with a clean and modern interface to deliver a seamless user experience across devices.
+
+Tech Stack
 
 Frontend: PrebuiltUI + Tailwind CSS
-
-AI Integration: Google Gemini
-
+AI Engine: Google Gemini
 Authentication: Firebase (integration in progress)
-
 Image Storage & CDN: Cloudinary
-
 Deployment: Vercel
 
-✨ Key Features
+Key Features
 
-AI-driven thumbnail generation powered by Google Gemini
+AI-powered thumbnail generation using Google Gemini
+
+Structured prompt optimization for improved visual output quality
 
 Modern SaaS-style interface built with PrebuiltUI components
 
@@ -31,19 +30,19 @@ Local authentication system (Firebase Auth integration underway)
 
 Live production deployment on Vercel
 
-🏗 Architecture & Design Approach
+Architecture & Technical Approach
 
-Refined prompt engineering to enhance AI output quality
+Advanced prompt engineering to enhance AI-generated design accuracy
 
-Efficient API request handling and structured response management
+Optimized API request handling and structured response management
 
 Scalable architecture with planned user-based generation limits
 
-Clean, consistent, and user-centric UI/UX design patterns
+Efficient cloud asset management pipeline
 
-Performance-optimized cloud deployment strategy
+Performance-optimized deployment strategy
 
-📊 Current Status
+Current Status
 
 Completed:
 
@@ -61,12 +60,7 @@ User-based generation quota system
 
 Google Cloud billing configuration
 
-🔗 Reference
-
-Project inspiration:
-https://www.youtube.com/watch?v=LpHfmr1CKEI
-
-👤 Author
+Author
 
 Siddharth Nirmale
 LinkedIn: https://www.linkedin.com/in/siddharth-nirmale/
