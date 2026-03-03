@@ -69,10 +69,10 @@ export default function Navbar() {
 						</div>
 					) : (
 						<button
-							className="hidden md:block px-6 py-2.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 transition-all rounded-full"
+							className="bg-indigo-500 bg-[url(/assets/login.gif)] bg-cover bg-center text-indigo-50 py-2 px-4 rounded-3xl "
 							onClick={() => navigate("/login")}
-						>
-							Get Started
+						>		
+							Get Started	
 						</button>
 					)}
 
