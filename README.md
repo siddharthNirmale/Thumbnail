@@ -6,7 +6,6 @@ This project is a scalable SaaS web application designed to generate high-qualit
 
 The platform is built with performance, scalability, and usability in mind, combining refined prompt engineering with a clean and modern interface to deliver a seamless user experience across devices.
 
-Tech Stack
 
 Frontend: PrebuiltUI + Tailwind CSS
 AI Engine: Google Gemini
