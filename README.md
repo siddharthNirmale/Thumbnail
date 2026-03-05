@@ -1,66 +1,78 @@
-AI-Powered Thumbnail Generation Platform (Google Gemini)
+# **AI-Powered Thumbnail Generation Platform (Google Gemini)**
 
-Project Overview
+---
 
-This project is a scalable SaaS web application designed to generate high-quality, visually compelling thumbnails using Google Gemini AI. It enables content creators to transform structured prompts into professional-grade thumbnail designs within seconds.
+## **Project Overview**
 
-The platform is built with performance, scalability, and usability in mind, combining refined prompt engineering with a clean and modern interface to deliver a seamless user experience across devices.
+This project is a **scalable SaaS web application** designed to generate **high-quality, visually compelling thumbnails** using **Google Gemini AI**.
 
-Tech Stack
+It enables content creators to transform **structured prompts into professional-grade thumbnail designs within seconds**.
 
-Frontend: PrebuiltUI + Tailwind CSS
-AI Engine: Google Gemini
-Authentication: Firebase (integration in progress)
-Image Storage & CDN: Cloudinary
-Deployment: Vercel
+The platform is built with **performance, scalability, and usability in mind**, combining refined **prompt engineering** with a **clean and modern interface** to deliver a seamless user experience across devices.
 
-Key Features
+---
 
-AI-powered thumbnail generation using Google Gemini
+## **🚀 Tech Stack**
 
-Structured prompt optimization for improved visual output quality
+**Frontend**
+- PrebuiltUI  
+- Tailwind CSS  
 
-Modern SaaS-style interface built with PrebuiltUI components
+**AI Engine**
+- Google Gemini  
 
-Fully responsive design using Tailwind CSS
+**Authentication**
+- Firebase *(integration in progress)*  
 
-Secure image storage and optimized delivery via Cloudinary
+**Image Storage & CDN**
+- Cloudinary  
 
-Local authentication system (Firebase Auth integration underway)
+**Deployment**
+- Vercel  
 
-Live production deployment on Vercel
+---
 
-Architecture & Technical Approach
+## **✨ Key Features**
 
-Advanced prompt engineering to enhance AI-generated design accuracy
+- **AI-powered thumbnail generation** using Google Gemini  
+- **Structured prompt optimization** for improved visual output quality  
+- **Modern SaaS-style interface** built with PrebuiltUI components  
+- **Fully responsive design** using Tailwind CSS  
+- **Secure image storage and optimized delivery** via Cloudinary  
+- **Local authentication system** *(Firebase Auth integration underway)*  
+- **Live production deployment** on Vercel  
 
-Optimized API request handling and structured response management
+---
 
-Scalable architecture with planned user-based generation limits
+## **⚙️ Architecture & Technical Approach**
 
-Efficient cloud asset management pipeline
+- **Advanced prompt engineering** to enhance AI-generated design accuracy  
+- **Optimized API request handling and structured response management**
+- **Scalable architecture** with planned **user-based generation limits**
+- **Efficient cloud asset management pipeline**
+- **Performance-optimized deployment strategy**
 
-Performance-optimized deployment strategy
+---
 
-Current Status
+## **📌 Current Status**
 
-Completed:
+### **✅ Completed**
 
-AI thumbnail generation fully functional
+- AI thumbnail generation fully functional  
+- Cloudinary integration implemented  
+- Live deployment on Vercel  
 
-Cloudinary integration implemented
+### **🚧 In Progress**
 
-Live deployment on Vercel
+- Firebase Authentication integration  
+- User-based generation quota system  
+- Google Cloud billing configuration  
 
-In Progress:
+---
 
-Firebase Authentication integration
+## **👨‍💻 Author**
 
-User-based generation quota system
+**Siddharth Nirmale**
 
-Google Cloud billing configuration
-
-Author
-
-Siddharth Nirmale
-LinkedIn: https://www.linkedin.com/in/siddharth-nirmale/
+**LinkedIn:**  
+https://www.linkedin.com/in/siddharth-nirmale/
