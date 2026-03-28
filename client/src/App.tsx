@@ -10,6 +10,7 @@ import YtPreview from "./pages/YtPreview";
 import Login from "./components/Login";
 import { useEffect, useState } from "react";
 import {Toaster} from "react-hot-toast";
+import {motion,useScroll} from "motion/react";
 
 export default function App() {
 
@@ -19,8 +20,11 @@ export default function App() {
     useEffect(()=>{
         window.scrollTo(0,0);
     },[pathname])
+
+    
     return (
         <>
+        
             <Toaster/>
             <LenisScroll />
             <Navbar />
