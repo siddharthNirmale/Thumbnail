@@ -10,7 +10,6 @@ It enables content creators to transform **structured prompts into professional-
 
 The platform is built with **performance, scalability, and usability in mind**, combining refined **prompt engineering** with a **clean and modern interface** to deliver a seamless user experience across devices.
 
----
 
 ## 🛠 Tech Stack
 
