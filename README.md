@@ -1,6 +1,5 @@
 # AI-Powered Thumbnail Generation Platform (Google Gemini)
 
----
 
 ## 📌 Project Overview
 
