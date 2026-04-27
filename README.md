@@ -1,7 +1,7 @@
 # AI-Powered Thumbnail Generation Platform (Google Gemini)
 
 
-## 📌 Project Overview
+## 📌 Project Overview in short
 
 This project is a **scalable SaaS web application** designed to generate **high-quality, visually compelling thumbnails** using **Google Gemini AI**.
 
