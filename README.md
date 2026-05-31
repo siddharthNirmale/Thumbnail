@@ -28,7 +28,7 @@ The platform is built with **performance, scalability, and usability in mind**, 
 **Deployment**
 - Vercel  
 
----
+
 
 ## ✨ Key Features
 
